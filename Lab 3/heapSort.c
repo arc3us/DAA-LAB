@@ -58,8 +58,8 @@ void heapSort(int arr[], int size) {
 }
 
 int main() {
-    // int arr[] = {81, 89, 9, 11, 14, 76, 54, 22};
-    // int size = 8;
+    // int arr[] = 2, 3, 88, 19, 12};
+    // int size = 5;
 
     int size;
     printf("Enter size of array : \n");
@@ -72,8 +72,10 @@ int main() {
         scanf("%d", &arr[i]);
     }
 
+    printf("Unsorted array \n");
     printArray(arr, size);
     heapSort(arr, size);
+    printf("Sorted Array \n");
     printArray(arr, size);
-    // make_heap(arr, size);
+    return 0;
 }
