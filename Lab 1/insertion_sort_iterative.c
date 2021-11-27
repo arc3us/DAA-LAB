@@ -1,6 +1,6 @@
 #include<stdio.h>
 
-void print_arr(int arr[], int size) {
+void arrayPrint(int arr[], int size) {
     int i;
     for (i = 0; i < size; i++) {
         printf("%d\t", arr[i]);
@@ -11,7 +11,7 @@ void print_arr(int arr[], int size) {
 void main() {
     int arr[] = {3, 5, 7, 1, 2, 10, 15, 4, 11, 8};
     int size = 10;
-    print_arr(arr, size);
+    arrayPrint(arr, size);
     int i, j;
     for (i = 0; i < size; i++) {
         for (j = i + 1; j < size; j++) {
@@ -22,5 +22,5 @@ void main() {
             }
         }
     }
-    print_arr(arr, size);
+    arrayPrint(arr, size);
 }
