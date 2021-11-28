@@ -26,7 +26,7 @@ void main() {
                 //swapping of variables
                 int t = arr[i];
                 arr[i] = arr[j];
-                arr[j] = t; //array now becomes {2,3,5,1}, 2nd pass: 3<5, so doesnt swap, then {1,2,3,5}                              
+                arr[j] = t; //array now becomes {2,3,5,1}, 2nd pass: 3<5, so doesn't swap, then {1,2,3,5}                              
             }
         }
     }
