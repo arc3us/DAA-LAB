@@ -15,19 +15,19 @@ void arrayPrint(int arr[], int size)
 // Function to merge two arrays
 void mergeArray(int arr[], int size, int l, int m, int r) 
 {
-    int size_a = m + 1 - l;
-    int size_b = r - m;
+    int size_a = m + 1 - l; //size of the left split array, i.e 1
+    int size_b = r - m; //size of the right split array i.e. 1
 
-    int a[MAX];
+    int a[MAX]; //Array declaration
     int b[MAX];
 
     int i, c = 0; //intial counter for two arrays a and b
-    for (i = l; i <= m; i++)
+    for (i = l; i <= m; i++) //i=0, m=1, r=3
     {
         a[c++] = arr[i];
     }
     c = 0;
-    for (i = m + 1; i <= r; i++)
+    for (i = m + 1; i <= r; i++)//i=2, r=3
     {
         b[c++] = arr[i];
     }
@@ -37,7 +37,7 @@ void mergeArray(int arr[], int size, int l, int m, int r)
     c = l;
     while (x < size_a && y < size_b)
     {
-        if (a[x] <= b[y])
+        if (a[x] <= b[y])//a[x]= 
         {
             arr[c] = a[x++];
         }
@@ -66,10 +66,10 @@ void mergeSort(int arr[], int size, int l, int r) //array = {3,2,5,1}, size = 4,
     {
         //arrays will be split, then sorted, then the split arrays will be merged
 
-        int mid = (l + r) / 2; //mid = 3/2 = 1 
+        int mid = (l + r) / 2; //mid = 3/2 = 1 , next iteration it will be 0
         mergeSort(arr, size, l, mid); //arr = {3,2,5,1}, size = 4, l = 0, mid = 1 => a part from 0 to 1
-        mergeSort(arr, size, mid + 1, r);//arr={3,2,5,1}, size = 4, mid +1 = 2, r = 3 => a part from 2 to 3
-        mergeArray(arr, size, l, mid, r);
+        mergeSort(arr, size, mid + 1, r);//arr={3,2,5,1}, size = 4, mid + 1 = 2, r = 3 => a part from 2 to 3
+        mergeArray(arr, size, l, mid, r);//split arrays will be merged
     }
 }
 
