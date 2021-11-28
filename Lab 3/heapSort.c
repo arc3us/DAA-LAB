@@ -1,54 +1,64 @@
-#include<stdio.h>
+#include <stdio.h>
 #define MAX 100
 
-void printArray(int arr[], int size) {
+void printArray(int arr[], int size)
+{
     int i;
-    for (i = 0; i < size; i++) {
+    for (i = 0; i < size; i++)
+    {
         printf("%d\t", arr[i]);
     }
     printf("\n");
 }
 
 // k -> index
-void heapify(int arr[], int size, int k) {
+void heapify(int arr[], int size, int k)
+{
     // we consider that largest is root
     int largest = k;
-    int l = 2 * k + 1; // 2k + 1
-    int r = 2 * k + 2; // 2k + 2
+    int l = 2 * k + 1; // 2k + 1 i.e. the left node
+    int r = 2 * k + 2; // 2k + 2 i.e. the right node
 
-    if (l < size) {
-        if (arr[l] > arr[largest]) {
+    if (l < size)
+    {
+        if (arr[l] > arr[largest])
+        {
             // left node greater
             largest = l;
         }
     }
 
-    if (r < size) {
-        if (arr[r] > arr[largest]) {
+    if (r < size)
+    {
+        if (arr[r] > arr[largest])
+        {
             // right node greater
             largest = r;
         }
     }
 
-    if (k != largest) {
+    if (k != largest)
+    {
         // swap values
         int t = arr[k];
         arr[k] = arr[largest];
         arr[largest] = t;
-        
+
         heapify(arr, size, largest);
     }
 }
 
-
-void heapSort(int arr[], int size) {
+void heapSort(int arr[], int size)
+{
     // create heap
     int i;
-    for (i = size / 2 - 1; i >= 0; i--) {
+    for (i = size / 2 - 1; i >= 0; i--)
+    {
         heapify(arr, size, i);
     }
 
-    for (i = size - 1; i > 0; i--) {
+    for (i = size - 1; i > 0; i--)
+    {
         int t = arr[0];
         arr[0] = arr[i];
         arr[i] = t;
@@ -57,9 +67,10 @@ void heapSort(int arr[], int size) {
     }
 }
 
-int main() {
-    // int arr[] = 2, 3, 88, 19, 12};
-    // int size = 5;
+int main()
+{
+    // int arr[] = 2, 3, 5, 1};
+    // int size = 4;
 
     int size;
     printf("Enter size of array : \n");
@@ -68,7 +79,8 @@ int main() {
 
     printf("Enter values : \n");
     int i;
-    for (i = 0; i < size; i++) {
+    for (i = 0; i < size; i++)
+    {
         scanf("%d", &arr[i]);
     }
 
