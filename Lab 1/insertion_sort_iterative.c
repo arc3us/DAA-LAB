@@ -17,16 +17,18 @@ void main() {
     int size = 4; //size of the array
     arrayPrint(arr, size); //printing unsorted array
     int i, j; //variables for iteration
-    for (i = 0; i < size; i++)
+    for (i = 0; i < size; i++) //inital value of i is 0, will run till the size of the array
      {
-        for (j = i + 1; j < size; j++) 
+        for (j = i + 1; j < size; j++)  // initial value of j is i+1, that is 1, will run till the size of the array
         {
-            if (arr[i] > arr[j]) {
+            if (arr[i] > arr[j]) // 3 is greater than 2, so it goes inside the if block
+            { 
+                //swapping of variables
                 int t = arr[i];
                 arr[i] = arr[j];
-                arr[j] = t;                                
+                arr[j] = t; //array now becomes {2,3,5,1}, 2nd pass: 3<5, so doesnt swap, then {1,2,3,5}                              
             }
         }
     }
-    arrayPrint(arr, size);
+    arrayPrint(arr, size); //printing the sorted array
 }
