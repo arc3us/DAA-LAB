@@ -1,5 +1,7 @@
 #include<stdio.h>
 
+
+//Function to print array
 void arrayPrint(int arr[], int size) {
     int i;
     for (i = 0; i < size; i++) {
@@ -8,13 +10,17 @@ void arrayPrint(int arr[], int size) {
     printf("\n");
 }
 
+
+
 void main() {
-    int arr[] = {3, 5, 7, 1, 2, 10, 15, 4, 11, 8};
-    int size = 10;
-    arrayPrint(arr, size);
-    int i, j;
-    for (i = 0; i < size; i++) {
-        for (j = i + 1; j < size; j++) {
+    int arr[] = {3,2,5,1}; //initial array, unsorted
+    int size = 4; //size of the array
+    arrayPrint(arr, size); //printing unsorted array
+    int i, j; //variables for iteration
+    for (i = 0; i < size; i++)
+     {
+        for (j = i + 1; j < size; j++) 
+        {
             if (arr[i] > arr[j]) {
                 int t = arr[i];
                 arr[i] = arr[j];
