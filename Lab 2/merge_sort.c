@@ -64,9 +64,11 @@ void mergeSort(int arr[], int size, int l, int r) //array = {3,2,5,1}, size = 4,
 {
     if (l < r) // 0 < 3
     {
+        //arrays will be split, then sorted, then the split arrays will be merged
+
         int mid = (l + r) / 2; //mid = 3/2 = 1 
-        mergeSort(arr, size, l, mid); //arr = {3,2,5,1}, size = 4, l = 0, mid = 1
-        mergeSort(arr, size, mid + 1, r);
+        mergeSort(arr, size, l, mid); //arr = {3,2,5,1}, size = 4, l = 0, mid = 1 => a part from 0 to 1
+        mergeSort(arr, size, mid + 1, r);//arr={3,2,5,1}, size = 4, mid +1 = 2, r = 3 => a part from 2 to 3
         mergeArray(arr, size, l, mid, r);
     }
 }
