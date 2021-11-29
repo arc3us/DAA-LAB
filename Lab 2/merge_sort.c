@@ -37,7 +37,7 @@ void mergeArray(int arr[], int size, int l, int m, int r)
     c = l;
     while (x < size_a && y < size_b)
     {
-        if (a[x] <= b[y])//a[x]= 
+        if (a[x] <= b[y])
         {
             arr[c] = a[x++];
         }

@@ -9,6 +9,7 @@ void main()
     int weight[10];
     int value[10];
 
+    //inputting necessary data
     printf("Enter the capacity of knapsack:\n");
     scanf("%d", &capacity);
 
@@ -24,25 +25,27 @@ void main()
         scanf("%d", &value[i]);
     }
 
+    //initializing all objects as not taken, i.e. 0
     for (i = 0; i < no_items; ++i)
         used[i] = 0;
 
-    cur_weight = capacity;
-    while (cur_weight > 0)
+    cur_weight = capacity; //current available weight as capacity
+
+    while (cur_weight > 0)//while available weight is greater than 0
     {
         item = -1;
         for (i = 0; i < no_items; ++i)
             if ((used[i] == 0) &&
-                ((item == -1) || ((float) value[i] / weight[i] > (float) value[item] / weight[item])))
+                ((item == -1) || ((float)value[i] / weight[i] > (float)value[item] / weight[item])))
                 item = i;
 
         used[item] = 1;
-        cur_weight -= weight[item];
-        total_profit += value[item];
-        if(cur_weight < 0)
+        cur_weight = cur_weight - weight[item];
+        total_profit = total_profit + value[item];
+        if (cur_weight < 0)
         {
-            total_profit -= value[item];
-            total_profit += (1 + (float)cur_weight / weight[item]) * value[item];
+            total_profit = total_profit - value[item];
+            total_profit = total_profit + (1 + (float)cur_weight / weight[item]) * value[item];
         }
     }
 

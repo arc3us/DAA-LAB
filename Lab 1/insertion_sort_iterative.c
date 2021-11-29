@@ -1,34 +1,40 @@
-#include<stdio.h>
-
-
-//Function to print array
-void arrayPrint(int arr[], int size) {
-    int i;
-    for (i = 0; i < size; i++) {
-        printf("%d\t", arr[i]);
+#include <math.h>
+#include <stdio.h>
+ 
+void insertionSort(int arr[], int n)
+{
+    int i, key, j;
+    for (i = 1; i < n; i++) {
+        key = arr[i]; //3
+        j = i - 1; //0
+ 
+        /* Move elements of arr[0..i-1], that are
+          greater than key, to one position ahead
+          of their current position */
+        while (j >= 0 && arr[j] > key) {
+            arr[j + 1] = arr[j];
+            j = j - 1;
+        }
+        arr[j + 1] = key;
     }
-    printf("\n");
 }
 
-
-
-void main() {
-    int arr[] = {3,2,5,1}; //initial array, unsorted
-    int size = 4; //size of the array
-    arrayPrint(arr, size); //printing unsorted array
-    int i, j; //variables for iteration
-    for (i = 0; i < size; i++) //inital value of i is 0, will run till the size of the array
-     {
-        for (j = i + 1; j < size; j++)  // initial value of j is i+1, that is 1, will run till the size of the array
-        {
-            if (arr[i] > arr[j]) // 3 is greater than 2, so it goes inside the if block
-            { 
-                //swapping of variables
-                int t = arr[i];
-                arr[i] = arr[j];
-                arr[j] = t; //array now becomes {2,3,5,1}, 2nd pass: 3<5, so doesn't swap, then {1,2,3,5}                              
-            }
-        }
-    }
-    arrayPrint(arr, size); //printing the sorted array
+void printArray(int arr[], int n)
+{
+    int i;
+    for (i = 0; i < n; i++)
+        printf("%d ", arr[i]);
+    printf("\n");
+}
+ 
+int main()
+{
+    int arr[] = { 3, 2, 5, 1};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    
+    printArray(arr, n);
+    insertionSort(arr, n);
+    printArray(arr, n);
+ 
+    return 0;
 }

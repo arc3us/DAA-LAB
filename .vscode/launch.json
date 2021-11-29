@@ -5,6 +5,13 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "type": "java",
+            "name": "Launch binary_search_iterative",
+            "request": "launch",
+            "mainClass": "binary_search_iterative",
+            "projectName": "DAA LAB_f21caaa2"
+        },
+        {
             "name": "gcc.exe - Build and debug active file",
             "type": "cppdbg",
             "request": "launch",
