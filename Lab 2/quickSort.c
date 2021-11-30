@@ -11,7 +11,7 @@ void arrayPrint(int arr[], int size)
     printf("\n");
 }
 
-int partition(int *a, int start, int end)
+int partitionIndex(int *a, int start, int end)
 
 {
 
@@ -43,7 +43,7 @@ void quicksort(int *a, int start, int end)
     int p1;
     if (start < end)
     {
-        p1 = partition(a, start, end);
+        p1 = partitionIndex(a, start, end);
         quicksort(a, start, p1 - 1);
         quicksort(a, p1 + 1, end);
     }
