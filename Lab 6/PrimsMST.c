@@ -1,8 +1,7 @@
 #include <limits.h>
 #include <stdbool.h>
 #include <stdio.h>
-#define V 5
-
+int V;
 
 int minCost(int cost[], bool visited[])
 {
@@ -65,10 +64,12 @@ void primMST(int graph[V][V])
 int main()
 {
 
+	printf("Enter no of vertices \n");
+	scanf("%d", &V);
+
     int graph[V][V];
 
-
-	printf("Enter adjacency matrix for a graph with 5 vertices \n");
+	printf("Enter adjacency matrix for a graph with %d vertices \n", V);
 	
     for(int i=0; i<V; i++)
 	{
