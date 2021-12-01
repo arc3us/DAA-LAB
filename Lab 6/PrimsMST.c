@@ -23,7 +23,7 @@ int printMST(int parent[], int graph[V][V])
 	{
 		minCost +=  graph[i][parent[i]];
 	}
-	printf("Min Cost %d \n", minCost);
+	printf("Minimun Cost is: %d \n", minCost);
 
 	printf("Edge \tWeight\n");
 	for (int i = 1; i < V; i++)
