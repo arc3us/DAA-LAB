@@ -18,6 +18,13 @@ int minCost(int cost[], bool visited[])
 
 int printMST(int parent[], int graph[V][V])
 {
+	int minCost=0;
+	for (int i = 0; i < V; i++)
+	{
+		minCost +=  graph[i][parent[i]];
+	}
+	printf("Min Cost %d \n", minCost);
+
 	printf("Edge \tWeight\n");
 	for (int i = 1; i < V; i++)
 		printf("%d - %d \t%d \n", parent[i], i, graph[i][parent[i]]);
@@ -51,18 +58,17 @@ void primMST(int graph[V][V])
 				parent[v] = u, cost[v] = graph[u][v];
 	}
 
+	printf("\n");
 	printMST(parent, graph);
 }
 
 int main()
 {
-    // printf("Enter no of vertices \n");
-    // int V=0;
-    // scanf("%d", &V);
+
     int graph[V][V];
 
 
-	printf("Enter adjacency matrix for a graph with 5 vertices");
+	printf("Enter adjacency matrix for a graph with 5 vertices \n");
 	
     for(int i=0; i<V; i++)
 	{
