@@ -7,7 +7,7 @@
 //function to implement dijkstra's algorithm
 void dijkstra(int G[MAX][MAX], int n, int startNode)
 {
-	int cost[MAX][MAX], distance[MAX], pred[MAX];
+	int cost[MAX][MAX], distance[MAX], parent[MAX];
 	int visited[MAX], count, minDistance, nextNode, i, j;
 	for (i = 0; i < n; i++)
 		for (j = 0; j < n; j++)
@@ -19,7 +19,7 @@ void dijkstra(int G[MAX][MAX], int n, int startNode)
 	for (i = 0; i < n; i++)
 	{
 		distance[i] = cost[startNode][i];
-		pred[i] = startNode;
+		parent[i] = startNode;
 		visited[i] = 0;
 	}
 	distance[startNode] = 0;
@@ -40,7 +40,7 @@ void dijkstra(int G[MAX][MAX], int n, int startNode)
 				if (minDistance + cost[nextNode][i] < distance[i])
 				{
 					distance[i] = minDistance + cost[nextNode][i];
-					pred[i] = nextNode;
+					parent[i] = nextNode;
 				}
 		count++;
 	}
@@ -53,7 +53,7 @@ void dijkstra(int G[MAX][MAX], int n, int startNode)
 			j = i;
 			do
 			{
-				j = pred[j];
+				j = parent[j];
 				printf(" <-%d", j);
 			} while (j != startNode);
 		}
